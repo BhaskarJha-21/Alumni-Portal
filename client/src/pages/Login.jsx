@@ -115,8 +115,8 @@ const Login = () => {
             </button>
           </form>
 
-          {/* Divider */}
-          <div className="divider my-6">OR</div>
+{/*           Divider */}
+{/*           <div className="divider my-6">OR</div> */}
 
           {/* Google Login */}
 {/*           <button onClick={handleGoogleLogin} className="btn btn-outline w-full">
@@ -139,7 +139,7 @@ const Login = () => {
               />
             </svg>
 {/*             Continue with Google */}
-          // </button> */}
+{/*           // </button> */} */}
 
           {/* Sign Up Link */}
           <div className="text-center mt-6">
