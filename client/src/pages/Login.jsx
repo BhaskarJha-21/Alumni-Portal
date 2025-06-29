@@ -139,7 +139,7 @@ const Login = () => {
               />
             </svg>
 {/*             Continue with Google */}
-{/*           // </button> */} */}
+{/*           // </button> */}
 
           {/* Sign Up Link */}
           <div className="text-center mt-6">
