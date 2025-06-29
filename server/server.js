@@ -30,7 +30,7 @@ const io = new Server(httpServer, {
   cors: {
     origin: [
       process.env.CLIENT_URL || "http://localhost:3000",
-      "https://alumni-portal-frontend-vdvb.onrender.com"  // Add your frontend URL here
+      "https://alumni-portal-8npo.onrender.com"  // Add your frontend URL here
     ],
     methods: ["GET", "POST"],
     credentials: true
@@ -40,7 +40,7 @@ const io = new Server(httpServer, {
 // Middleware
 app.use(cors({
   origin: [
-    "https://alumni-portal-frontend-vdvb.onrender.com",
+    "https://alumni-portal-8npo.onrender.com",
     "http://localhost:3000"
   ],
   credentials: true

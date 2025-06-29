@@ -1,4 +1,5 @@
 # MERN Alumni Portal - WhatsApp-like Chat Features
+Live URL: https://alumni-portal-8npo.onrender.com
 
 A comprehensive alumni portal with real-time chat functionality featuring WhatsApp-like features.
 
