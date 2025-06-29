@@ -119,7 +119,7 @@ const Login = () => {
           <div className="divider my-6">OR</div>
 
           {/* Google Login */}
-          <button onClick={handleGoogleLogin} className="btn btn-outline w-full">
+{/*           <button onClick={handleGoogleLogin} className="btn btn-outline w-full">
             <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24">
               <path
                 fill="currentColor"
@@ -139,7 +139,7 @@ const Login = () => {
               />
             </svg>
 {/*             Continue with Google */}
-          </button>
+          // </button> */}
 
           {/* Sign Up Link */}
           <div className="text-center mt-6">
