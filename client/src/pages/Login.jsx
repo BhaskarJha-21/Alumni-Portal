@@ -55,7 +55,7 @@ const Login = () => {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className={input input-bordered ${errors.identifier ? "input-error" : ""}}
+                className={`input input-bordered ${errors.identifier ? "input-error" : ""}`}
                 {...register("identifier", {
                   required: "Email is required",
                   pattern: {
@@ -80,7 +80,7 @@ const Login = () => {
                 <input
                   type={showPassword ? "text" : "password"}
                   placeholder="Enter your password"
-                  className={input input-bordered w-full pr-10 ${errors.password ? "input-error" : ""}}
+                  className={`input input-bordered w-full pr-10 ${errors.password ? "input-error" : ""}`}
                   {...register("password", {
                     required: "Password is required",
                   })}
