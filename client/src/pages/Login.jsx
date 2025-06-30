@@ -11,6 +11,7 @@ const Login = () => {
   const navigate = useNavigate()
   const [showPassword, setShowPassword] = useState(false)
   const [loginType, setLoginType] = useState("email") // 'email' or 'phone'
+  const [loginError, setLoginError] = useState("")
 
   const {
     register,
@@ -19,11 +20,12 @@ const Login = () => {
   } = useForm()
 
   const onSubmit = async (data) => {
+    setLoginError("")
     const result = await login(data.identifier, data.password)
     if (result.notVerified) {
       navigate("/verify-otp", { state: { email: result.email } })
     } else if (!result.success) {
-      console.error("Login failed:", result.message)
+      setLoginError("Invalid credentials")
     }
   }
 
@@ -53,11 +55,11 @@ const Login = () => {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className={`input input-bordered ${errors.identifier ? "input-error" : ""}`}
+                className={input input-bordered ${errors.identifier ? "input-error" : ""}}
                 {...register("identifier", {
                   required: "Email is required",
                   pattern: {
-                    value: /^\S+@\S+$/i,
+                    value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
                     message: "Invalid email address",
                   },
                 })}
@@ -78,13 +80,9 @@ const Login = () => {
                 <input
                   type={showPassword ? "text" : "password"}
                   placeholder="Enter your password"
-                  className={`input input-bordered w-full pr-10 ${errors.password ? "input-error" : ""}`}
+                  className={input input-bordered w-full pr-10 ${errors.password ? "input-error" : ""}}
                   {...register("password", {
                     required: "Password is required",
-                    minLength: {
-                      value: 6,
-                      message: "Password must be at least 6 characters",
-                    },
                   })}
                 />
                 <button
@@ -95,7 +93,7 @@ const Login = () => {
                   {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                 </button>
               </div>
-              {errors.password && (
+              {errors.password && errors.password.type === 'required' && (
                 <label className="label">
                   <span className="label-text-alt text-error">{errors.password.message}</span>
                 </label>
@@ -115,11 +113,15 @@ const Login = () => {
             </button>
           </form>
 
-{/*           Divider */}
-{/*           <div className="divider my-6">OR</div> */}
+          {loginError && (
+            <div className="text-error text-sm mt-2">{loginError}</div>
+          )}
 
-          {/* Google Login */}
-{/*           <button onClick={handleGoogleLogin} className="btn btn-outline w-full">
+          {/* Divider */}
+          {/* <div className="divider my-6">OR</div> */}
+
+          {/* Google Login
+          <button onClick={handleGoogleLogin} className="btn btn-outline w-full">
             <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24">
               <path
                 fill="currentColor"
@@ -138,8 +140,9 @@ const Login = () => {
                 d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
               />
             </svg>
-{/*             Continue with Google */}
-{/*           // </button> */}
+            Continue with Google
+          </button>
+           */}
 
           {/* Sign Up Link */}
           <div className="text-center mt-6">
