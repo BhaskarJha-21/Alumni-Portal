@@ -72,7 +72,7 @@ const Signup = () => {
               <input
                 type="text"
                 placeholder="Enter your full name"
-                className={input input-bordered ${errors.name ? "input-error" : ""}}
+                className={`input input-bordered ${errors.name ? "input-error" : ""}`}
                 {...register("name", {
                   required: "Full name is required",
                   minLength: {
@@ -96,7 +96,7 @@ const Signup = () => {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className={input input-bordered ${errors.contact ? "input-error" : ""}}
+                className={`input input-bordered ${errors.contact ? "input-error" : ""}`}
                 {...register("contact", {
                   required: "Email is required",
                   pattern: {
@@ -122,11 +122,11 @@ const Signup = () => {
                   <Calendar size={20} />
                 </span>
                 <select
-                  className={input input-bordered w-full pl-10 ${errors.batch ? "input-error" : ""}}
+                  className={`input input-bordered w-full pl-10 ${errors.batch ? "input-error" : ""}`}
                   value={batchStart}
                   onChange={e => {
                     setBatchStart(Number(e.target.value));
-                    const batchValue = ${e.target.value}-${Number(e.target.value) + 1};
+                    const batchValue = `${e.target.value}-${Number(e.target.value) + 1}`;
                     setValue("batch", batchValue, { shouldValidate: true });
                   }}
                   style={{ appearance: 'none' }}
@@ -150,7 +150,7 @@ const Signup = () => {
                       return true;
                     },
                   })}
-                  value={${batchStart}-${batchStart + 1}}
+                  value={`${batchStart}-${batchStart + 1}`}
                   readOnly
                 />
               </div>
@@ -169,7 +169,7 @@ const Signup = () => {
               <input
                 type="text"
                 placeholder="e.g., Mumbai, Delhi, Bangalore"
-                className={input input-bordered ${errors.center ? "input-error" : ""}}
+                className={`input input-bordered ${errors.center ? "input-error" : ""}`}
                 {...register("center", {
                   required: "Center is required",
                 })}
@@ -190,7 +190,7 @@ const Signup = () => {
                 <input
                   type={showPassword ? "text" : "password"}
                   placeholder="Create a password"
-                  className={input input-bordered w-full pr-10 ${errors.password ? "input-error" : ""}}
+                  className={`input input-bordered w-full pr-10 ${errors.password ? "input-error" : ""}`}
                   {...register("password", {
                     required: "Password is required",
                     minLength: {
@@ -241,7 +241,7 @@ const Signup = () => {
                 <input
                   type={showConfirmPassword ? "text" : "password"}
                   placeholder="Confirm your password"
-                  className={input input-bordered w-full pr-10 ${errors.confirmPassword ? "input-error" : ""}}
+                  className={`input input-bordered w-full pr-10 ${errors.confirmPassword ? "input-error" : ""}`}
                   {...register("confirmPassword", {
                     required: "Please confirm your password",
                     validate: (value) => value === password || "Passwords do not match",
@@ -256,7 +256,7 @@ const Signup = () => {
                 </button>
               </div>
               {confirmPassword.length > 0 && (
-                <div className={mt-1 text-xs ${passwordsMatch ? "text-green-600" : "text-red-600"}}>
+                <div className={`mt-1 text-xs ${passwordsMatch ? "text-green-600" : "text-red-600"}`}>
                   {passwordsMatch ? "✔ Passwords match" : "✖ Passwords do not match"}
                 </div>
               )}
